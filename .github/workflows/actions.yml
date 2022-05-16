@@ -7,6 +7,8 @@ jobs:
       - name: Install pandoc
         run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc
 
-      - name: Run pandoc
+      - name: Checkout repo
         uses: actions/checkout@v3
+
+      - name: Run pandoc
         run: pandoc -V papersize:a4 --highlight-style breezeDark --pdf-engine xelatex -o foo.pdf foo.md
