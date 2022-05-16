@@ -1,13 +1,8 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  generate-pdf:
+  install-requirements:
     runs-on: ubuntu-latest
     steps:
-      - uses: docker://pandoc/core:2.9
-      - with:
-          args: >-
-            -V papersize:a4
-            --highlight-style breezeDark
-            --pdf-engine xelatex
-            -o foo.pdf foo.md
+      - name: Install pandoc
+        run: sudo apt update && apt upgrade -y && apt install -y pandoc
