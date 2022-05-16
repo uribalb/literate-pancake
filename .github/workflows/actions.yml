@@ -1,7 +1,7 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  Build PDFs:
+  Build_PDFs:
     runs-on: ubuntu-latest
     steps:
       - name: Install pandoc
