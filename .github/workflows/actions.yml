@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install pandoc
-        run: sudo apt update && apt upgrade -y && apt install -y pandoc
+        run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc
