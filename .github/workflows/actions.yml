@@ -6,4 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: docker://pandoc/core:2.9
-      - run: pandoc -V papersize:a4 --highlight-style breezeDark --pdf-engine xelatex -o foo.pdf foo.md
+      - with:
+          args:
+            -V papersize:a4
+            --highlight-style breezeDark
+            --pdf-engine xelatex
+            -o foo.pdf foo.md
