@@ -4,7 +4,6 @@ jobs:
   generate-pdf:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: docker://pandoc/core:2.9
       - with:
           args: >-
