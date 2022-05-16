@@ -1,11 +1,11 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  install-requirements:
+  Build PDFs:
     runs-on: ubuntu-latest
     steps:
       - name: Install pandoc
-        run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc
+        run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc texlive-xetex
 
       - name: Checkout repo
         uses: actions/checkout@v3
