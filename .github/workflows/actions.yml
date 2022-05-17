@@ -10,11 +10,16 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Run pandoc
-        run: pandoc -V papersize:a4 --highlight-style breezeDark --pdf-engine xelatex -o foo.pdf foo.md
+      - run: mkdir -p path/to/artifact
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+      - name: Run pandoc
+        run: pandoc -V papersize:a4 --highlight-style breezeDark --pdf-engine xelatex -o path/to/artifact/foo.pdf foo.md
+
+      - run: echo hello > path/to/artifact/world.txt
+
+      - uses: actions/upload-artifact@v3
         with:
-          name: output
-          path: output/foo.pdf
+          name: my-artifact
+          path: |
+            path/to/artifact/world.txt
+            path/to/artifact/foo.pdf
