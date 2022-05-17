@@ -4,9 +4,7 @@ jobs:
   Build_PDFs:
     runs-on: ubuntu-latest
     steps:
-      - name: Download font
-        run: wget https://www.1001freefonts.com/d/5539/alegreya.zip -O /root/alegreya.zip
-      - name: Install pandoc
+      - name: Install pandoc & fonts
         run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc texlive-xetex texlive-fonts-extra texlive-fonts-recommended
 
       - name: Checkout repo
