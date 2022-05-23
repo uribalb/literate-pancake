@@ -13,7 +13,7 @@ author: Patrick Nsukami
 abstract: Summary of this document
 thanks: Acknowledgments footnote after the document title.
 code-line-numbers: true
-latex-output-dir output
+latex-output-dir: output
 output-file: foo2
 output-ext: pdf
 header-includes: |
