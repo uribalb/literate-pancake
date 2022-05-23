@@ -4,10 +4,6 @@ jobs:
   Build_PDFs:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Install Python requirements
-        run: pip3 install -r requirements.txt
-
       - name: Install pandoc & fonts
         run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc texlive-xetex texlive-fonts-extra texlive-fonts-recommended
 
@@ -24,6 +20,10 @@ jobs:
 
       - name: Checkout repo
         uses: actions/checkout@v3
+
+
+      - name: Install Python requirements
+        run: pip3 install -r requirements.txt
 
       - run: mkdir -p output
 
