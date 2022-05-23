@@ -4,6 +4,10 @@ jobs:
   Build_PDFs:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Install Jupyter
+        run: pip3 install notebook
+
       - name: Install pandoc & fonts
         run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc texlive-xetex texlive-fonts-extra texlive-fonts-recommended
 
