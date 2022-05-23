@@ -16,9 +16,10 @@ jobs:
           sudo dpkg -i quarto-0.9.442-linux-amd64.deb
 
       - name: Create new user
-        run: |
-          sudo adduser --disabled-password --gecos "" nskm
-          su nskm
+        run: sudo adduser --disabled-password --gecos "" nskm
+
+      - name: Switch user
+        run: su nskm
 
       - name: Install SSH Key
         run: |
