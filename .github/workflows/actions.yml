@@ -10,7 +10,13 @@ jobs:
       - name: Install Quarto
         run: |
           wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.9.442/quarto-0.9.442-linux-amd64.deb
-          dpkg -i quarto-0.9.442-linux-amd64.deb
+          sudo dpkg -i quarto-0.9.442-linux-amd64.deb
+
+      - name: Install SSH Key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          # echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -28,3 +34,7 @@ jobs:
           name: pdf_output
           path: |
             output/foo.pdf
+            output/foo2.pdf
+
+      - name: Move pdf files to server
+        run: rsync  -P -a -v --recursive -e  'ssh -p 1022' 'output/*.pdf' ${{ secrets.REMOTE_DEST }}:ci_pdf_outputs  --cvs-exclude
