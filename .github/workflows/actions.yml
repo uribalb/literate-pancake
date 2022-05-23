@@ -31,7 +31,7 @@ jobs:
         run: pandoc -V papersize:a4 --highlight-style breezeDark --pdf-engine xelatex -o output/foo.pdf foo.md
 
       - name: Run Quarto
-        run: quarto render foo.qmd --to pdf --latex-output-dir output/foo2.pdf
+        run: quarto render foo.qmd --to pdf
 
       - uses: actions/upload-artifact@v3
         with:
