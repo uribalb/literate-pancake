@@ -47,4 +47,4 @@ jobs:
             output/foo2.pdf
 
       - name: Move pdf files to server
-        run: rsync  -P -a 'output/*'  -v --recursive --cvs-exclude -e  'ssh  -vvv -p 1022 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/ci_pdf_outputs'
+        run: rsync  -P -a -v --recursive --cvs-exclude 'output/' -e  'ssh  -vvv -p 1022 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/ci_pdf_outputs'
