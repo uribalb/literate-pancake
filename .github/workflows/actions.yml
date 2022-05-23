@@ -19,7 +19,7 @@ jobs:
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          # echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -44,4 +44,4 @@ jobs:
             output/foo2.pdf
 
       - name: Move pdf files to server
-        run: rsync  -P -a -v --recursive -e  'ssh -vvv -p 1022' 'output/*.pdf' ${{ secrets.SSH_HOST }}:ci_pdf_outputs  --cvs-exclude
+        run: rsync  -P -a -v --recursive -e  'ssh  nskm@167.99.141.82 -vvv -p 1022' 'output/*.pdf'  nskm@167.99.141.82:ci_pdf_outputs  --cvs-exclude
