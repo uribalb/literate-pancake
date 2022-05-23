@@ -7,6 +7,11 @@ jobs:
       - name: Install pandoc & fonts
         run: sudo apt update && sudo apt upgrade -y && sudo apt install -y pandoc texlive-xetex texlive-fonts-extra texlive-fonts-recommended
 
+      - name: Install Quarto
+        run: |
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.9.442/quarto-0.9.442-linux-amd64.deb
+          dpkg -i quarto-0.9.442-linux-amd64.deb
+
       - name: Checkout repo
         uses: actions/checkout@v3
 
@@ -14,6 +19,9 @@ jobs:
 
       - name: Run pandoc
         run: pandoc -V papersize:a4 --highlight-style breezeDark --pdf-engine xelatex -o output/foo.pdf foo.md
+
+      - name: Run Quarto
+        run: quarto render foo.qmd --to pdf --latex-output-dir output/foo2.pdf
 
       - uses: actions/upload-artifact@v3
         with:
