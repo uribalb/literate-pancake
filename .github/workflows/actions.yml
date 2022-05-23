@@ -19,7 +19,7 @@ jobs:
         run: sudo adduser --disabled-password --gecos "" nskm
 
       - name: Switch user
-        run: su nskm
+        run: sudo -u nskm -s
 
       - name: Install SSH Key
         run: |
