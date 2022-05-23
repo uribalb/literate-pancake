@@ -1,6 +1,6 @@
 ---
 title: |
-  ![](../img/Logo.png){width=2in}
+  ![](./img/Logo.png){width=2in}
 
   "Introduction to Python modules."
 date: April, 2022
