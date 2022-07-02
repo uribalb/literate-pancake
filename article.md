@@ -35,4 +35,7 @@ a = 42
 
 def bar(x):
     print(x)
+
+def foo():
+    return 42
 ```
